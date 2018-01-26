@@ -1,6 +1,6 @@
 Name:           vesta
 Version:        0.9.8
-Release:        15
+Release:        19
 Summary:        Vesta Control Panel
 Group:          System Environment/Base
 License:        GPL
@@ -36,6 +36,12 @@ if [ $1 -ge 2 ]; then
     if [ -e /usr/local/vesta/upd/add_notifications.sh ]; then
         /usr/local/vesta/upd/add_notifications.sh
     fi
+    if [ -e /usr/local/vesta/upd/fix_sessions.sh ]; then
+        /usr/local/vesta/upd/fix_sessions.sh
+    fi
+    if [ -e /usr/local/vesta/upd/fix_nginx_auth.sh ]; then
+        /usr/local/vesta/upd/fix_nginx_auth.sh
+    fi
 fi
 %files
 %{_vestadir}
@@ -50,6 +56,43 @@ fi
 %config(noreplace) %{_vestadir}/web/css/uploadify.css
 
 %changelog
+* Wed Jan 10 2018 Serghey Rodin <builder@vestacp.com> - 0.9.8-19
+- Fixed backup restore function
+
+* Fri Dec 29 2017 Serghey Rodin <builder@vestacp.com> - 0.9.8-18
+- Let's Encrypt for internationalized domains (IDN)
+- Softaculous Application Installer
+- Debian 9 support sponsored by isicore.com
+- Ubuntu 16.10 and 17.04 support
+- Korean, Urdu, Thai, Brazilian Portuguese, Serbian and Bulgarian language support
+- We've made 1478 commits
+- 29 bugs closed / 141 pull requests merged
+
+* Mon Nov 14 2016 Serghey Rodin <builder@vestacp.com> - 0.9.8-17
+- System Config Editor
+- Let's Encrypt GUI
+- Google Nearline expiremental backup support
+- User notifcation panel
+- ClamAV fixes for CentOS/Debian/Ubuntu
+- i18n updates
+- Web stats support for php-fpm systems
+- Georgian Translation
+- Filemanager improvements
+- Imap/Pop3 JS helpers
+- Dozen bugfixes including security issues
+
+
+* Mon Jun 27 2016 Serghey Rodin <builder@vestacp.com> - 0.9.8-16
+- Full keyboard control
+- Cron Helper
+- LetsEncrypt Support cli-only
+- Language files update
+- File permission in File Manager
+- Handle DES passwords
+- New templates for PHP-FPM
+- Core refactoring
+- Dozen bugfixes including security issues
+
 * Fri Nov 06 2015 Serghey Rodin <builder@vestacp.com> - 0.9.8-15
 - File Manager (commercial plugin)
 - SFTP Chroot (commercial plugin)
